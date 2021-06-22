@@ -1,0 +1,32 @@
+##this is a server configuration file
+
+    RewriteEngine on
+    RewriteCond %{REQUEST_FILENAME}\.php -f
+    ##RewriteCond %{REQUEST_FILENAME}\.html -f
+
+    ##need to change this when change default file format/scripting lang
+    RewriteRule ^([^\.]+)$ $1.php [NC,L]
+    ##RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+##Change default homepage
+    DirectoryIndex index.php
+
+##Set the Time Zone for Your Server
+    SetEnv TZ Asia/Malaysia
+
+##Redirect Browser to https
+    ##RewriteCond %{HTTPS} !on
+    ##RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+
+##Disable or Enable Directory browsing
+##disable directory browsing
+    Options All -Indexes
+##enable directory browsing
+    Options All +Indexes
+
+
+##Router page Error to custom page
+    ErrorDocument 404 /hddocs/rex-foodpedia-FYP/error/404.php
+    ##ErrorDocument 404 /hddocs/myrun-project/admin/error/404.php
+
+
